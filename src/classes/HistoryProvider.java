@@ -21,7 +21,7 @@ public class HistoryProvider {
     public History createHistory(List<Product>listProducts,List<Account>listAccounts){
         History history = new History();
        System.out.println("Список покупок: ");
-        int countCurrentProducts=0;
+        int countCurrentProducts = 0;
         for(int i = 0; i < listProducts.size();i++){
             if (listProducts.get(i).getCount() > 0){
                 System.out.printf("%d. Название товара: %s, категория: %s, размер: %s, Цкна товара: %s,колличество: %s%n"
@@ -60,7 +60,7 @@ public class HistoryProvider {
             System.out.print("Выберите номер покупателя");
             int accountNum = scanner.nextInt();
             Account account = listAccounts.get(accountNum-1);
-            account.setMoney(account.getMoney()-product.getPrice());
+            
             history.setProduct(product);
             history.setAccount(account);
             history.setTakeOn(new Date());
@@ -71,9 +71,12 @@ public class HistoryProvider {
                     +"\" продан."
             );
             return null;
+        
+           } 
+        
         }
     }
-    
-}
+ 
+
 
 

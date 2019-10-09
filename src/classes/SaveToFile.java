@@ -41,11 +41,19 @@ public class SaveToFile {
                 try {
                     objectOutputStream.close();
                 } catch (IOException ex) {
-                    Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Ошибка освобождения ресурса oos", ex); 
+                 } 
+             } 
+            if(fileOutputStream != null){ 
+                 try { 
+                     fileOutputStream.close(); 
+                 } catch (IOException ex) { 
+                    Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Ошибка освобождения ресурса fos", ex); 
                 }
             }
         }
-   }
+    }       
+ 
     public List<Product>loadProducts(){
         List<Product>listProducts = new ArrayList<>();
         FileInputStream fileInputStream = null; 
@@ -58,9 +66,9 @@ public class SaveToFile {
             System.out.println("Ошибка: не найден файл Products.txt"); 
        } catch (IOException ex) { 
             System.out.println("Ошибка: чтение файла Products.txt не удолось"); 
-         } catch (ClassNotFoundException ex) { 
+       } catch (ClassNotFoundException ex) { 
              System.out.println("Ошибка: нет класса Product"); 
-         }finally{ 
+        }finally{ 
             if(objectInputStream != null){ 
                 try { 
                     objectInputStream.close(); 
@@ -95,7 +103,15 @@ public class SaveToFile {
                 try {
                     objectOutputStream.close();
                 } catch (IOException ex) {
-                    Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Ошибка освобождения ресурса oos", ex); 
+                 } 
+             } 
+            if(fileOutputStream != null){ 
+                 try { 
+                     fileOutputStream.close(); 
+                 } catch (IOException ex) { 
+                    Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Ошибка освобождения ресурса fos", ex); 
+
                 }
             }
         } 
@@ -132,7 +148,7 @@ public class SaveToFile {
          } 
         return listAccounts;
     }
-    public void saveHistorys(List<History>listHistorys) {
+     void saveHistorys(List<History>listHistorys) {
         FileOutputStream fileOutputStream = null;
         ObjectOutputStream objectOutputStream = null;
         try {
@@ -149,15 +165,23 @@ public class SaveToFile {
                 try {
                     objectOutputStream.close();
                 } catch (IOException ex) {
-                    Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Ошибка освобождения ресурса oos", ex); 
+                 } 
+             } 
+             if(fileOutputStream != null){ 
+                 try { 
+                     fileOutputStream.close(); 
+                 } catch (IOException ex) { 
+                     Logger.getLogger(SaveToFile.class.getName()).log(Level.SEVERE, "Ошибка освобождения ресурса fos", ex); 
+
                 }
             }
         } 
    }
-    public List<History>loadHistorys(){
+    List<History>loadHistorys(){
         List<History>listHistorys = new ArrayList<>();
         FileInputStream fileInputStream = null; 
-         ObjectInputStream objectInputStream = null; 
+        ObjectInputStream objectInputStream = null; 
         try { 
            fileInputStream = new FileInputStream("Historys.txt"); 
             objectInputStream = new ObjectInputStream(fileInputStream); 
@@ -166,9 +190,9 @@ public class SaveToFile {
             System.out.println("Ошибка: не найден файл Historys.txt"); 
        } catch (IOException ex) { 
             System.out.println("Ошибка: чтение файла Historys.txt не удолось"); 
-         } catch (ClassNotFoundException ex) { 
+       } catch (ClassNotFoundException ex) { 
              System.out.println("Ошибка: нет класса History"); 
-         }finally{ 
+       }finally{ 
             if(objectInputStream != null){ 
                 try { 
                     objectInputStream.close(); 

@@ -23,7 +23,7 @@ public class AccountProvider {
         System.out.println("Электронная почта ");
         account.setEmail((scanner.nextLine()));
         System.out.println("Сумма денег");
-        account.setMoney(new Integer(scanner.nextLine()));
+        account.setMoney(Integer.parseInt(scanner.nextLine()));
         return account;
     }
 }

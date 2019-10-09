@@ -45,6 +45,7 @@ public class App {
             System.out.println("5. Оформить покупку");
             System.out.println(" Введите номер задачи:");
             
+            
             String numberTask = scanner.nextLine();
             if(null != numberTask)
                 switch (numberTask) {
@@ -73,7 +74,7 @@ public class App {
                         }
                         break;
             case "3":
-                        System.out.println("Список товаров в магазине");
+                        System.out.println("Список товаров");
                         int i = 1;
                 for(Product p : listProducts){
                         System.out.println(i+" . "+p.toString());
@@ -95,6 +96,8 @@ public class App {
                 }else{
                 }
                 break;  
+            
+
             }
         } while(flagExit);
     }
