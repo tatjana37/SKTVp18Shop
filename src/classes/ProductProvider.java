@@ -26,6 +26,7 @@ public class ProductProvider {
         product.setPrice(new Integer(scanner.nextLine()));
         System.out.println("Колличество ");
         product.setQuantity(Integer.parseInt(scanner.nextLine()));
+        product.setCount(product.getQuantity());
         return product;
 }
 }

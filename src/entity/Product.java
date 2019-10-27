@@ -12,19 +12,22 @@ import java.io.Serializable;
  * @author lenovo
  */
 public class Product  implements Serializable {
-    
+    private Long id;
     private String produktTitle;
     private String categoria;
     private int quantity;
     private int count;
     private int size;
     private int price;
+    
+    
    
     
     public Product(){
     }
 
-    public Product(String produktTitle, String categoria, int quantity, int count, int size, int price) {
+    public Product(Long id, String produktTitle, String categoria, int quantity, int count, int size, int price) {
+        this.id = id;
         this.produktTitle = produktTitle;
         this.categoria = categoria;
         this.quantity = quantity;
@@ -36,7 +39,6 @@ public class Product  implements Serializable {
     public String getProduktTitle() {
         return produktTitle;
     }
-
     public void setProduktTitle(String produktTitle) {
         this.produktTitle = produktTitle;
     }
@@ -44,7 +46,6 @@ public class Product  implements Serializable {
     public String getCategoria() {
         return categoria;
     }
-
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
@@ -81,6 +82,7 @@ public class Product  implements Serializable {
         this.price = price;
     }
 
+    
     @Override
     public String toString() {
         return "Product{" + "produkt_title=" + produktTitle + ", categoria=" + categoria + ", quantity=" + quantity + ", count=" + count + ", size=" + size + ", price=" + price + '}';

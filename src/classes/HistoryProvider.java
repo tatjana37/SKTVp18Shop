@@ -8,7 +8,9 @@ package classes;
 import entity.Account;
 import entity.History;
 import entity.Product;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +19,8 @@ import java.util.Scanner;
  * @author lenovo
  */
 public class HistoryProvider {
-      Scanner scanner = new Scanner(System.in);
+       
+Scanner scanner = new Scanner(System.in);
     public History createHistory(List<Product>listProducts,List<Account>listAccounts){
         History history = new History();
        System.out.println("Список покупок: ");
@@ -76,6 +79,10 @@ public class HistoryProvider {
         
         }
     }
+        
+        
+
+    
  
 
 

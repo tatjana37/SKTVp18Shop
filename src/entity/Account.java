@@ -12,6 +12,7 @@ import java.io.Serializable;
  * @author lenovo
  */
 public class Account implements Serializable {
+    private Long id;
     private String name;
     private String lastname;
     private String email;
@@ -19,7 +20,8 @@ public class Account implements Serializable {
     
     public Account(){
     }
-    public Account(String name, String lastname, String email, int money) {
+    public Account(Long id, String name, String lastname, String email, int money) {
+        this.id = id;
         this.name = name;
         this.lastname = lastname;
         this.email = email;
