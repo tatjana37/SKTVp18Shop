@@ -24,6 +24,8 @@ import java.util.logging.Logger;
  */
 public class SaveToFile {
 
+    
+
    public void saveProducts(List<Product>listProducts) {
         FileOutputStream fileOutputStream = null;
         ObjectOutputStream objectOutputStream = null;

@@ -8,9 +8,11 @@ package classes;
 import entity.Account;
 import entity.History;
 import entity.Product;
+import interfaces.Saveble;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 
 /**
  *
@@ -20,21 +22,29 @@ public class App {
 
     List<Product> listProducts = new ArrayList<>();
     List<Account> listAccounts = new ArrayList<>();
-    private List<History> listHistorys = new ArrayList<>();
+    List<History> listHistorys = new ArrayList<>();
+    Saveble saveble;
     
-    public App(){
-        SaveToFile saveToFile = new SaveToFile();
-        listProducts = saveToFile.loadProducts();
-        listAccounts = saveToFile.loadAccounts();
-        listHistorys = saveToFile.loadHistorys();
+    public App(String flag){
+        if(flag.equals("base")){
+            saveble = new SaveToBase();
+        }else if(flag.equals("file")){
+            saveble =  (Saveble) new SaveToFile();
+        }else{
+            saveble = new SaveToBase();
+        }
+        listProducts = saveble.loadProducts();
+        listAccounts = saveble.loadAccounts();
+        listHistorys = saveble.loadHistorys();
+    }
+
+    public App() {
     }
     
     
     public void run(){
         Scanner scanner = new Scanner(System.in);
-       
         HistoryProvider historyProvider = new HistoryProvider();
-        SaveToFile saveToFile = new SaveToFile();
         boolean flagExit = true;
         do{
             System.out.println("Список задач:");
@@ -58,7 +68,7 @@ public class App {
                 ProductProvider productProvider = new ProductProvider();
                 Product product = productProvider.createProduct();
                 listProducts.add(product); 
-                saveToFile.saveProducts(listProducts);
+                saveble.saveProducts(listProducts);
                 for(Product p : listProducts) {
                     System.out.println(p.toString()); 
                 }
@@ -68,7 +78,7 @@ public class App {
                 AccountProvider accountProvider = new AccountProvider();
                 Account account = accountProvider.createAccount();
                 listAccounts.add(account); 
-                saveToFile.saveAccounts(listAccounts);
+                saveble.saveAccounts(listAccounts);
                 for(Account a : listAccounts) {
                     System.out.println(a.toString()); 
                 }
@@ -91,7 +101,7 @@ public class App {
                 System.out.println(" Оформить покупку");
                         History history = historyProvider.createHistory(listProducts, listAccounts);
                         listHistorys.add(history);
-                        saveToFile.saveHistorys(listHistorys);
+                        saveble.saveHistorys(listHistorys);
                 break; 
                 case "6":
                     System.out.println("Список проданных товаров");

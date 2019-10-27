@@ -6,17 +6,27 @@
 package entity;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author lenovo
  */
+@Entity
 public class Account implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String lastname;
     private String email;
     private int money;
+    private int count;
+
+    
     
     public Account(){
     }
@@ -26,6 +36,7 @@ public class Account implements Serializable {
         this.lastname = lastname;
         this.email = email;
         this.money = money;
+        
         
     }
     public String getName() {
@@ -57,6 +68,24 @@ public class Account implements Serializable {
     public String toString() {
         return "Account{" + "name=" + name + ", lastname=" + lastname + ", email=" + email + ", money=" + money + '}';
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    
     
     
     

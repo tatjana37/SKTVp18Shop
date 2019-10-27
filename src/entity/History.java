@@ -8,16 +8,29 @@ package entity;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 
 /**
  *
  * @author lenovo
  */
+@Entity
 public class History implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @OneToOne
     private Account account;
+    @OneToOne
     private Product product;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date takeOn;
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date ReturnDate;
     private int quantity;
     private int count;
