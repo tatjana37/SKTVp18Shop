@@ -53,7 +53,7 @@ public class App {
             System.out.println("2. Новый покупатель");
             System.out.println("3. Список товаров");
             System.out.println("4. Список покупателей");
-            System.out.println("5. Оформить покупку");
+            System.out.println("5. Купить товар");
             System.out.println("6. Список проданных товаров");
             System.out.println(" Введите номер задачи:");
             String numberTask = scanner.nextLine();
@@ -69,9 +69,9 @@ public class App {
                 Product product = productProvider.createProduct();
                 listProducts.add(product); 
                 saveble.saveProducts(listProducts);
-                for(Product p : listProducts) {
-                    System.out.println(p.toString()); 
-                }
+                        for(Product p : listProducts) {
+                    System.out.println(p.toString());
+            }
                 break;
             case "2":
                 System.out.println("Новый покупатель");
@@ -80,8 +80,8 @@ public class App {
                 listAccounts.add(account); 
                 saveble.saveAccounts(listAccounts);
                 for(Account a : listAccounts) {
-                    System.out.println(a.toString()); 
-                }
+                    System.out.println(a.toString());
+            }
                 break;
             case "3":
                 System.out.println("Список товаров");
@@ -98,7 +98,7 @@ public class App {
                 }  
                 break;
             case "5": 
-                System.out.println(" Оформить покупку");
+                System.out.println(" Купить товар");
                         History history = historyProvider.createHistory(listProducts, listAccounts);
                         listHistorys.add(history);
                         saveble.saveHistorys(listHistorys);

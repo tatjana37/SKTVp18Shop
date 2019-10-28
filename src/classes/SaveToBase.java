@@ -44,6 +44,7 @@ public SaveToBase() {
                 em.persist(listProducts.get(i));
                 tx.commit();
         }else{
+            continue;
             }
         }
     } 
@@ -88,13 +89,14 @@ int flag = 0;
                         flag++;
                     }
 if(flag >1){
-                        listHistorys.get(i).getAccount().setCount(listHistorys.get(i).getAccount().getCount()+1);
+                        listHistorys.get(i).getAccount().setMoney(listHistorys.get(i).getAccount().getMoney()+1);
                         listHistorys.remove(listHistorys.get(i));
                         System.out.println("Этот товар уже куплен");
                         break;
                     }
                 }
-            }
+             }
+            
             if(flag > 1) break;
 }
     List<History>listHistorysSaved = loadHistorys();

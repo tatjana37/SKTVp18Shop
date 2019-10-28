@@ -32,20 +32,17 @@ public class History implements Serializable{
     private Date takeOn;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date ReturnDate;
-    private int quantity;
-    private int count;
+    
 
     public History() {
     }
 
-    public History(Long id, Account account, Product product, Date takeOn, Date ReturnDate, int quantity, int count) {
+    public History(Long id, Account account, Product product, Date takeOn, Date ReturnDate) {
         this.id = id;
         this.account = account;
         this.product = product;
         this.takeOn = takeOn;
         this.ReturnDate = ReturnDate;
-        this.quantity = quantity;
-        this.count = count;
     }
 
     public Long getId() {
@@ -88,32 +85,14 @@ public class History implements Serializable{
         this.ReturnDate = ReturnDate;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
-
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.id);
-        hash = 53 * hash + Objects.hashCode(this.account);
-        hash = 53 * hash + Objects.hashCode(this.product);
-        hash = 53 * hash + Objects.hashCode(this.takeOn);
-        hash = 53 * hash + Objects.hashCode(this.ReturnDate);
-        hash = 53 * hash + this.quantity;
-        hash = 53 * hash + this.count;
+        hash = 89 * hash + Objects.hashCode(this.id);
+        hash = 89 * hash + Objects.hashCode(this.account);
+        hash = 89 * hash + Objects.hashCode(this.product);
+        hash = 89 * hash + Objects.hashCode(this.takeOn);
+        hash = 89 * hash + Objects.hashCode(this.ReturnDate);
         return hash;
     }
 
@@ -129,12 +108,6 @@ public class History implements Serializable{
             return false;
         }
         final History other = (History) obj;
-        if (this.quantity != other.quantity) {
-            return false;
-        }
-        if (this.count != other.count) {
-            return false;
-        }
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }
@@ -155,15 +128,11 @@ public class History implements Serializable{
 
     @Override
     public String toString() {
-        return "History{" + "id=" + id + ", account=" + account + ", product=" + product + ", takeOn=" + takeOn + ", ReturnDate=" + ReturnDate + ", quantity=" + quantity + ", count=" + count + '}';
+        return "History{" + "id=" + id + ", account=" + account + ", product=" + product + ", takeOn=" + takeOn + ", ReturnDate=" + ReturnDate + '}';
     }
 
-}
-   
-        
     
-
-
+}
 
    
    

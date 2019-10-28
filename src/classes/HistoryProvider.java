@@ -47,6 +47,7 @@ Scanner scanner = new Scanner(System.in);
         Product product = listProducts.get(takeProductNum-1);
         if(product.getCount()>0){
             product.setCount(product.getCount()-1);
+           
             System.out.println("список покупателей");
             int i=0;
             
@@ -63,10 +64,11 @@ Scanner scanner = new Scanner(System.in);
             System.out.print("Выберите номер покупателя");
             int accountNum = scanner.nextInt();
             Account account = listAccounts.get(accountNum-1);
-            
+            account.setMoney(account.getMoney()-product.getPrice());
             history.setProduct(product);
             history.setAccount(account);
             history.setTakeOn(new Date());
+            
             return history;
         }else{
             System.out.println("Товар \""
