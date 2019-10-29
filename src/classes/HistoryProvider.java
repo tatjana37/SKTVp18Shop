@@ -23,7 +23,7 @@ public class HistoryProvider {
 Scanner scanner = new Scanner(System.in);
     public History createHistory(List<Product>listProducts,List<Account>listAccounts){
         History history = new History();
-       System.out.println("Список покупок: ");
+       System.out.println("номер заказа: ");
         int countCurrentProducts = 0;
         for(int i = 0; i < listProducts.size();i++){
             if (listProducts.get(i).getCount() > 0){
